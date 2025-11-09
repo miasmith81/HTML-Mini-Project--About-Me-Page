@@ -1,0 +1,366 @@
+/* =============================================
+   RESPONSIVE CSS - BEST PRACTICES
+   Mobile-First Approach
+   ============================================= */
+
+/* 1. CSS RESET & BASE STYLES
+   ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. CSS CUSTOM PROPERTIES (Variables)
+   Define your color scheme and spacing system
+   ============================================= */
+:root {
+    /* Color Palette */
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --background-light: #f8f9fa;
+    --background-white: #ffffff;
+    --border-color: #dee2e6;
+    
+    /* Typography Scale */
+    --font-size-base: 16px;
+    --font-size-small: 0.875rem;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    
+    /* Spacing Scale */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+    
+    /* Layout */
+    --max-width: 1200px;
+    --border-radius: 4px;
+    --transition-speed: 0.3s;
+}
+
+/* 3. TYPOGRAPHY & BODY STYLES
+   ============================================= */
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    min-height: 100vh;
+}
+
+/* 4. HEADING STYLES
+   ============================================= */
+h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+    text-align: center;
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+/* 5. MAIN LAYOUT CONTAINER
+   ============================================= */
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    background-color: var(--background-white);
+    min-height: 100vh;
+}
+
+/* 6. IMAGE STYLES
+   ============================================= */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+.mausiMainPagePic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: var(--spacing-xl) auto;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed);
+}
+
+.mausiMainPagePic:hover {
+    transform: scale(1.05);
+}
+
+/* 7. SECTION STYLES
+   ============================================= */
+section {
+    margin-bottom: var(--spacing-xxl);
+    padding: var(--spacing-lg);
+    background-color: var(--background-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.about p {
+    text-align: justify;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+/* 8. LIST STYLES
+   ============================================= */
+ul {
+    list-style-position: inside;
+    margin-left: var(--spacing-md);
+}
+
+ul li {
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-sm);
+}
+
+.skills ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+    list-style: none;
+    margin-left: 0;
+}
+
+.skills ul li {
+    background-color: var(--background-light);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--secondary-color);
+    transition: background-color var(--transition-speed);
+}
+
+.skills ul li:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* 9. LINK STYLES
+   ============================================= */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-speed);
+    display: inline-block;
+    margin-top: var(--spacing-lg);
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* 10. GALLERY PAGE STYLES
+   For JagiyaMausiImages.html
+   ============================================= */
+section img {
+    margin-bottom: var(--spacing-lg);
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 11. RESPONSIVE GRID FOR CONTENT
+   ============================================= */
+div {
+    display: grid;
+    gap: var(--spacing-xl);
+}
+
+/* 12. MEDIA QUERIES - TABLET (768px+)
+   ============================================= */
+@media screen and (min-width: 768px) {
+    :root {
+        --font-size-h1: 2.5rem;
+        --font-size-h2: 1.875rem;
+    }
+    
+    main {
+        padding: var(--spacing-xl);
+    }
+    
+    .mausiMainPagePic {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .skills ul {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    /* Two-column layout for sections */
+    div {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 13. MEDIA QUERIES - DESKTOP (1024px+)
+   ============================================= */
+@media screen and (min-width: 1024px) {
+    :root {
+        --font-size-h1: 3rem;
+        --font-size-h2: 2rem;
+        --font-size-base: 18px;
+    }
+    
+    main {
+        padding: var(--spacing-xxl);
+        margin-top: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mausiMainPagePic {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .skills ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Gallery images in a grid */
+    section:has(img + img) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    section:has(img + img) h1 {
+        grid-column: 1 / -1;
+    }
+}
+
+/* 14. UTILITY CLASSES
+   ============================================= */
+.text-center {
+    text-align: center;
+}
+
+.mt-lg {
+    margin-top: var(--spacing-lg);
+}
+
+.mb-lg {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* 15. ACCESSIBILITY IMPROVEMENTS
+   ============================================= */
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Skip to main content link (add to HTML if needed) */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+}
+
+.skip-to-main:focus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-decoration: none;
+}
+
+/* 16. PRINT STYLES
+   ============================================= */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    main {
+        box-shadow: none;
+        max-width: 100%;
+    }
+    
+    img {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+}
+
+/* 17. ANIMATION CLASSES (Optional)
+   ============================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* 18. DARK MODE SUPPORT (Optional)
+   ============================================= */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-dark: #e0e0e0;
+        --text-light: #b0b0b0;
+        --background-light: #1a1a1a;
+        --background-white: #2a2a2a;
+        --primary-color: #4a9eff;
+        --border-color: #404040;
+    }
+    
+    body {
+        background-color: var(--background-light);
+    }
+    
+    .skills ul li {
+        background-color: #333333;
+    }
+}

@@ -24,4 +24,4 @@ Ask ChatGPT:
 Can you review my page structure (headings hierarchy, sections) and identify one redundant or missing element?
 Implement one suggested change and note it in your submission.
 
-Made with love from Mia 
+Made with ❤️ by Mia

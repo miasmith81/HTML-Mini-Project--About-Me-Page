@@ -461,14 +461,45 @@ footer .social-links {
     margin-left: 5px;
 }
 
-/* 12. RESPONSIVE GRID FOR CONTENT
+/* 12. RECIPE PAGE SPECIFIC STYLES
+   ============================================= */
+#recipe {
+    background: var(--glass-white);
+    padding: var(--spacing-xl);
+}
+
+#recipe h4 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-yellow);
+    padding-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+#recipe ol li {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-md);
+    border-left: 3px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+#recipe ol li:hover {
+    border-left-color: var(--accent-yellow);
+    background: rgba(200, 16, 46, 0.05);
+    padding-left: var(--spacing-lg);
+}
+
+#recipe strong {
+    color: var(--primary-color);
+}
+
+/* 13. RESPONSIVE GRID FOR CONTENT
    ============================================= */
 div {
     display: grid;
     gap: var(--spacing-xl);
 }
 
-/* 13. MEDIA QUERIES - TABLET (768px+)
+/* 14. MEDIA QUERIES - TABLET (768px+)
    ============================================= */
 @media screen and (min-width: 768px) {
     :root {
@@ -495,7 +526,7 @@ div {
     }
 }
 
-/* 14. MEDIA QUERIES - DESKTOP (1024px+)
+/* 15. MEDIA QUERIES - DESKTOP (1024px+)
    ============================================= */
 @media screen and (min-width: 1024px) {
     :root {
@@ -533,7 +564,7 @@ div {
     }
 }
 
-/* 15. UTILITY CLASSES
+/* 16. UTILITY CLASSES
    ============================================= */
 .text-center {
     text-align: center;
@@ -547,7 +578,7 @@ div {
     margin-bottom: var(--spacing-lg);
 }
 
-/* 16. ACCESSIBILITY IMPROVEMENTS
+/* 17. ACCESSIBILITY IMPROVEMENTS
    ============================================= */
 /* Focus visible for keyboard navigation */
 *:focus-visible {
@@ -572,7 +603,7 @@ div {
     text-decoration: none;
 }
 
-/* 17. PRINT STYLES
+/* 18. PRINT STYLES
    ============================================= */
 @media print {
     body {
@@ -596,7 +627,7 @@ div {
     }
 }
 
-/* 18. ANIMATION CLASSES (Optional)
+/* 19. ANIMATION CLASSES (Optional)
    ============================================= */
 @keyframes fadeIn {
     from {
@@ -613,7 +644,7 @@ div {
     animation: fadeIn 0.5s ease-out;
 }
 
-/* 19. DARK MODE SUPPORT (Optional)
+/* 20. DARK MODE SUPPORT (Optional)
    ============================================= */
 @media (prefers-color-scheme: dark) {
     :root {

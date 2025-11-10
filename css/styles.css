@@ -65,22 +65,6 @@ body {
     min-height: 100vh;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('/assets/mausiTrauma.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    opacity: 0.15;
-    z-index: -2;
-    filter: blur(2px) saturate(0.8);
-}
-
 /* 4. HEADING STYLES
    ============================================= */
 h1, h2 {

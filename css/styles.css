@@ -15,22 +15,22 @@
    Define your color scheme and spacing system
    ============================================= */
 :root {
-    /* Analogous Color Palette - Red to Orange Harmony (HSL Format) */
-    --primary-red: hsl(350, 85%, 42%); /* Chinese red */
-    --secondary-red-orange: hsl(10, 85%, 50%); /* Red-orange */
-    --tertiary-orange: hsl(30, 90%, 55%); /* Warm orange */
-    --accent-coral: hsl(15, 80%, 60%); /* Coral accent */
-    --accent-peach: hsl(25, 85%, 65%); /* Peach accent */
+    /* Analogous Color Palette - Green to Blue Harmony (HSL Format) */
+    --primary-green: hsl(150, 60%, 45%); /* Medium green */
+    --secondary-teal: hsl(170, 55%, 50%); /* Teal (green-blue) */
+    --tertiary-cyan: hsl(190, 60%, 55%); /* Cyan */
+    --accent-blue: hsl(200, 65%, 55%); /* Sky blue */
+    --accent-light-blue: hsl(210, 60%, 60%); /* Light blue */
     
     --text-dark: hsl(0, 0%, 0%); /* Pure black */
     --text-light: hsl(0, 0%, 10%); /* Dark black */
     --background-cream: hsl(42, 100%, 96%); /* Soft cream */
     --background-light: hsl(40, 67%, 97%); /* Light cream */
-    --border-warm: hsla(30, 90%, 55%, 0.6); /* Warm orange border */
+    --border-glow: hsla(170, 55%, 50%, 0.6); /* Teal border */
     
-    /* Glassmorphism Variables - Analogous Theme */
+    /* Glassmorphism Variables - Blue-Green Theme */
     --glass-bg: hsla(42, 100%, 96%, 0.25); /* Light cream glass */
-    --glass-border: hsla(30, 90%, 55%, 0.3); /* Orange glass border */
+    --glass-border: hsla(190, 60%, 55%, 0.3); /* Cyan glass border */
     --glass-shadow: hsla(0, 0%, 0%, 0.1);
     --glass-highlight: hsla(0, 0%, 100%, 0.5);
     
@@ -71,9 +71,10 @@ body {
     color: var(--text-dark);
     position: relative;
     background: linear-gradient(135deg, 
-        var(--primary-red) 0%, 
-        var(--secondary-red-orange) 50%, 
-        var(--tertiary-orange) 100%);
+        var(--primary-green) 0%, 
+        var(--secondary-teal) 40%, 
+        var(--tertiary-cyan) 70%,
+        var(--accent-blue) 100%);
     min-height: 100vh;
 }
 
@@ -82,7 +83,7 @@ body {
 h1, h2 {
     color: var(--text-dark);
     text-shadow: 
-        0 2px 4px hsla(30, 90%, 55%, 0.4),
+        0 2px 4px hsla(190, 60%, 55%, 0.4),
         0 0 20px hsla(0, 0%, 100%, 0.5);
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -115,9 +116,9 @@ main {
     /* Glassmorphism Effect */
     background: linear-gradient(
         135deg,
-        hsla(350, 85%, 42%, 0.15) 0%,
-        hsla(10, 85%, 50%, 0.1) 35%,
-        hsla(30, 90%, 55%, 0.08) 65%,
+        hsla(150, 60%, 45%, 0.12) 0%,
+        hsla(170, 55%, 50%, 0.08) 35%,
+        hsla(190, 60%, 55%, 0.06) 65%,
         hsla(42, 100%, 96%, 0.95) 100%
     );
     
@@ -132,7 +133,7 @@ main {
         0 8px 32px hsla(0, 0%, 0%, 0.1),
         0 2px 8px hsla(0, 0%, 0%, 0.05),
         inset 0 1px 1px var(--glass-highlight),
-        0 0 30px hsla(51, 100%, 50%, 0.2);
+        0 0 30px hsla(190, 60%, 55%, 0.2);
     
     position: relative;
     z-index: 1;
@@ -150,9 +151,9 @@ main::before {
     padding: 1px;
     background: linear-gradient(
         135deg,
-        var(--accent-coral),
-        var(--tertiary-orange),
-        var(--accent-peach)
+        var(--secondary-teal),
+        var(--tertiary-cyan),
+        var(--accent-blue)
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -177,15 +178,15 @@ img {
     object-fit: cover;
     border-radius: 50%;
     margin: var(--spacing-xl) auto;
-    border: 3px solid var(--accent-coral);
+    border: 3px solid var(--secondary-teal);
     
-    /* Glassmorphism Frame - Analogous Colors */
+    /* Glassmorphism Frame - Green to Blue Colors */
     box-shadow: 
-        0 0 0 8px hsla(10, 85%, 50%, 0.3),
-        0 0 0 12px hsla(30, 90%, 55%, 0.5),
-        0 0 0 14px hsla(25, 85%, 65%, 0.4),
+        0 0 0 8px hsla(150, 60%, 45%, 0.3),
+        0 0 0 12px hsla(170, 55%, 50%, 0.5),
+        0 0 0 14px hsla(190, 60%, 55%, 0.4),
         0 8px 32px hsla(0, 0%, 0%, 0.2),
-        0 0 40px hsla(15, 80%, 60%, 0.3);
+        0 0 40px hsla(170, 55%, 50%, 0.3);
     
     transition: all var(--transition-speed) ease;
     position: relative;
@@ -199,7 +200,7 @@ img {
     left: -20px;
     right: -20px;
     bottom: -20px;
-    border: 2px dotted var(--tertiary-orange);
+    border: 2px dotted var(--tertiary-cyan);
     border-radius: 50%;
     opacity: 0;
     transition: all 0.3s ease;
@@ -208,11 +209,11 @@ img {
 .mausiMainPagePic:hover {
     transform: scale(1.05) translateZ(10px);
     box-shadow: 
-        0 0 0 8px hsla(10, 85%, 50%, 0.5),
-        0 0 0 12px hsla(30, 90%, 55%, 0.7),
-        0 0 0 14px hsla(25, 85%, 65%, 0.6),
+        0 0 0 8px hsla(150, 60%, 45%, 0.5),
+        0 0 0 12px hsla(170, 55%, 50%, 0.7),
+        0 0 0 14px hsla(190, 60%, 55%, 0.6),
         0 12px 48px hsla(0, 0%, 0%, 0.3),
-        0 0 60px hsla(15, 80%, 60%, 0.5);
+        0 0 60px hsla(200, 65%, 55%, 0.5);
 }
 
 .mausiMainPagePic:hover::after {
@@ -229,9 +230,9 @@ section {
     /* Glassmorphism Background */
     background: linear-gradient(
         135deg,
-        hsla(350, 85%, 42%, 0.08) 0%,
-        hsla(15, 80%, 60%, 0.06) 40%,
-        hsla(30, 90%, 55%, 0.05) 70%,
+        hsla(150, 60%, 45%, 0.08) 0%,
+        hsla(170, 55%, 50%, 0.06) 40%,
+        hsla(190, 60%, 55%, 0.05) 70%,
         hsla(42, 100%, 96%, 0.92) 100%
     );
     
@@ -240,13 +241,13 @@ section {
     backdrop-filter: blur(10px) saturate(150%);
     
     /* Glass Border & Shadows */
-    border: 1px solid hsla(30, 90%, 55%, 0.4);
+    border: 1px solid hsla(190, 60%, 55%, 0.4);
     border-radius: var(--border-radius);
     box-shadow: 
         0 8px 32px hsla(0, 0%, 0%, 0.08),
         0 2px 8px hsla(0, 0%, 0%, 0.04),
         inset 0 1px 1px hsla(0, 0%, 100%, 0.6),
-        0 0 20px hsla(30, 90%, 55%, 0.15);
+        0 0 20px hsla(170, 55%, 50%, 0.15);
     
     transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -263,8 +264,8 @@ section:hover {
         0 12px 40px hsla(0, 0%, 0%, 0.12),
         0 4px 12px hsla(0, 0%, 0%, 0.06),
         inset 0 1px 2px hsla(0, 0%, 100%, 0.8),
-        0 0 30px hsla(15, 80%, 60%, 0.25),
-        0 0 40px hsla(30, 90%, 55%, 0.2);
+        0 0 30px hsla(170, 55%, 50%, 0.25),
+        0 0 40px hsla(200, 65%, 55%, 0.2);
 }
 
 section::before {
@@ -277,7 +278,7 @@ section::before {
     background: linear-gradient(
         45deg,
         transparent,
-        hsla(25, 85%, 65%, 0.08),
+        hsla(190, 60%, 55%, 0.08),
         transparent
     );
     transform: rotate(45deg);
@@ -322,15 +323,15 @@ ul li {
 }
 
 .skills ul li {
-    /* Glassmorphism Card - Analogous Colors */
+    /* Glassmorphism Card - Green to Blue Gradient */
     background: linear-gradient(
         135deg,
-        hsla(10, 85%, 50%, 0.22) 0%,
-        hsla(30, 90%, 55%, 0.18) 100%
+        hsla(150, 60%, 45%, 0.2) 0%,
+        hsla(190, 60%, 55%, 0.18) 100%
     );
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: calc(var(--border-radius) / 2);
-    border-left: 4px solid var(--secondary-red-orange);
+    border-left: 4px solid var(--primary-green);
     
     /* Glass Effect */
     -webkit-backdrop-filter: blur(8px);
@@ -356,7 +357,7 @@ ul li {
     background: linear-gradient(
         90deg,
         transparent,
-        hsla(25, 85%, 65%, 0.3),
+        hsla(210, 60%, 60%, 0.3),
         transparent
     );
     transition: left 0.5s ease;
@@ -367,13 +368,13 @@ ul li {
 }
 
 .skills ul li:hover {
-    background: var(--accent-coral);
+    background: var(--secondary-teal);
     color: var(--text-dark);
-    border-left-color: var(--tertiary-orange);
+    border-left-color: var(--accent-blue);
     transform: translateX(8px);
     box-shadow: 
-        -8px 8px 24px hsla(15, 80%, 60%, 0.3),
-        0 0 20px hsla(30, 90%, 55%, 0.4),
+        -8px 8px 24px hsla(170, 55%, 50%, 0.3),
+        0 0 20px hsla(200, 65%, 55%, 0.4),
         inset 0 1px 2px hsla(0, 0%, 100%, 0.6);
 }
 
@@ -401,7 +402,7 @@ ul li {
 .recipes h2::after {
     content: ' ▼';
     font-size: 0.7em;
-    color: var(--accent-coral);
+    color: var(--secondary-teal);
     transition: transform 0.3s ease;
     display: inline-block;
     margin-left: 8px;
@@ -415,38 +416,38 @@ ul li {
 .recipes:hover {
     background: linear-gradient(
         135deg,
-        hsla(350, 85%, 42%, 0.12) 0%,
-        hsla(15, 80%, 60%, 0.08) 40%,
-        hsla(30, 90%, 55%, 0.06) 70%,
+        hsla(150, 60%, 45%, 0.1) 0%,
+        hsla(170, 55%, 50%, 0.08) 40%,
+        hsla(190, 60%, 55%, 0.06) 70%,
         hsla(42, 100%, 96%, 0.94) 100%
     );
     box-shadow: 
-        0 8px 32px hsla(15, 80%, 60%, 0.2),
-        0 0 25px hsla(30, 90%, 55%, 0.3),
+        0 8px 32px hsla(170, 55%, 50%, 0.2),
+        0 0 25px hsla(190, 60%, 55%, 0.3),
         inset 0 1px 2px hsla(0, 0%, 100%, 0.7);
 }
 
 /* 9. LINK STYLES
    ============================================= */
 a {
-    color: var(--secondary-red-orange);
+    color: var(--primary-green);
     text-decoration: none;
     font-weight: 600;
     transition: all var(--transition-speed) ease;
     display: inline-block;
     margin-top: var(--spacing-lg);
-    text-shadow: 0 0 10px hsla(10, 85%, 50%, 0.3);
+    text-shadow: 0 0 10px hsla(150, 60%, 45%, 0.3);
 }
 
 a:hover {
-    color: var(--tertiary-orange);
+    color: var(--accent-blue);
     text-decoration: underline;
-    text-shadow: 0 0 15px hsla(30, 90%, 55%, 0.6);
+    text-shadow: 0 0 15px hsla(200, 65%, 55%, 0.6);
     transform: translateY(-2px);
 }
 
 a:focus {
-    outline: 2px solid var(--accent-coral);
+    outline: 2px solid var(--tertiary-cyan);
     outline-offset: 3px;
     border-radius: 4px;
 }
@@ -467,13 +468,13 @@ section img {
 .letsConnect {
     background: linear-gradient(
         135deg,
-        hsla(350, 85%, 42%, 0.1) 0%,
-        hsla(15, 80%, 60%, 0.08) 50%,
+        hsla(150, 60%, 45%, 0.1) 0%,
+        hsla(170, 55%, 50%, 0.08) 50%,
         hsla(42, 100%, 96%, 0.94) 100%
     );
     padding: var(--spacing-xl) var(--spacing-lg);
     border-radius: var(--border-radius);
-    border-top: 3px solid var(--accent-coral);
+    border-top: 3px solid var(--tertiary-cyan);
     
     /* Glass Effect */
     -webkit-backdrop-filter: blur(10px);
@@ -496,7 +497,7 @@ footer h3 {
     margin: 0;
     position: relative;
     text-shadow: 
-        0 0 20px hsla(30, 90%, 55%, 0.5),
+        0 0 20px hsla(190, 60%, 55%, 0.5),
         0 2px 4px hsla(0, 0%, 100%, 0.8);
     font-weight: 700;
 }
@@ -511,12 +512,12 @@ footer h3::after {
     height: 3px;
     background: linear-gradient(
         90deg,
-        var(--secondary-red-orange),
-        var(--tertiary-orange),
-        var(--accent-peach)
+        var(--primary-green),
+        var(--secondary-teal),
+        var(--accent-blue)
     );
     border-radius: 2px;
-    box-shadow: 0 2px 8px hsla(30, 90%, 55%, 0.4);
+    box-shadow: 0 2px 8px hsla(170, 55%, 50%, 0.4);
 }
 
 /* Social Links Container */
@@ -532,13 +533,13 @@ footer .social-links {
     gap: 8px;
     padding: 14px 28px;
     
-    /* Glassmorphism Button - Analogous Colors */
+    /* Glassmorphism Button - Green to Blue */
     background: linear-gradient(
         135deg,
-        hsla(10, 85%, 50%, 0.85),
-        hsla(15, 80%, 60%, 0.8)
+        hsla(150, 60%, 45%, 0.85),
+        hsla(170, 55%, 50%, 0.8)
     );
-    border: 2px solid var(--tertiary-orange);
+    border: 2px solid var(--tertiary-cyan);
     border-radius: 30px;
     color: var(--text-dark);
     font-weight: 700;
@@ -547,8 +548,8 @@ footer .social-links {
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     box-shadow: 
-        0 4px 16px hsla(10, 85%, 50%, 0.3),
-        0 0 20px hsla(30, 90%, 55%, 0.2),
+        0 4px 16px hsla(150, 60%, 45%, 0.3),
+        0 0 20px hsla(170, 55%, 50%, 0.2),
         inset 0 1px 1px hsla(0, 0%, 100%, 0.5);
     
     transition: all var(--transition-speed) ease;
@@ -563,7 +564,7 @@ footer .social-links {
     left: 50%;
     width: 0;
     height: 0;
-    background: var(--accent-peach);
+    background: var(--accent-light-blue);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.6s ease, height 0.6s ease;
@@ -573,10 +574,10 @@ footer .social-links {
     color: var(--text-dark);
     transform: translateY(-3px);
     box-shadow: 
-        0 8px 24px hsla(15, 80%, 60%, 0.4),
-        0 0 30px hsla(30, 90%, 55%, 0.4),
+        0 8px 24px hsla(170, 55%, 50%, 0.4),
+        0 0 30px hsla(190, 60%, 55%, 0.4),
         inset 0 1px 2px hsla(0, 0%, 100%, 0.8);
-    border-color: hsla(25, 85%, 65%, 0.8);
+    border-color: hsla(200, 65%, 55%, 0.8);
 }
 
 .connectLink:hover::before {

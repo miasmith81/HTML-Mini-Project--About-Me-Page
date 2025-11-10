@@ -213,16 +213,42 @@ ul li {
 }
 
 .skills ul li {
-    background-color: var(--background-light);
+    background: linear-gradient(135deg, 
+        var(--background-cream) 0%, 
+        var(--glass-white) 100%);
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--border-radius);
-    border-left: 3px solid var(--secondary-color);
-    transition: background-color var(--transition-speed);
+    border-left: 3px solid var(--accent-color);
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+}
+
+.skills ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 215, 0, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.skills ul li:hover::before {
+    left: 100%;
 }
 
 .skills ul li:hover {
-    background-color: var(--secondary-color);
-    color: white;
+    background: var(--accent-color);
+    color: var(--background-white);
+    border-left-color: var(--accent-yellow);
+    transform: translateX(5px);
+    box-shadow: -5px 5px 15px rgba(27, 94, 32, 0.3);
 }
 
 /* 8. COLLAPSIBLE RECIPES SECTION

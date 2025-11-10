@@ -582,7 +582,7 @@ div {
     }
 }
 
-/* 16. UTILITY CLASSES
+/* 17. UTILITY CLASSES
    ============================================= */
 .text-center {
     text-align: center;
@@ -596,7 +596,7 @@ div {
     margin-bottom: var(--spacing-lg);
 }
 
-/* 17. ACCESSIBILITY IMPROVEMENTS
+/* 18. ACCESSIBILITY IMPROVEMENTS
    ============================================= */
 /* Focus visible for keyboard navigation */
 *:focus-visible {
@@ -621,7 +621,7 @@ div {
     text-decoration: none;
 }
 
-/* 18. PRINT STYLES
+/* 19. PRINT STYLES
    ============================================= */
 @media print {
     body {
@@ -645,7 +645,7 @@ div {
     }
 }
 
-/* 19. ANIMATION CLASSES (Optional)
+/* 20. ANIMATION CLASSES (Optional)
    ============================================= */
 @keyframes fadeIn {
     from {
@@ -662,7 +662,7 @@ div {
     animation: fadeIn 0.5s ease-out;
 }
 
-/* 20. DARK MODE SUPPORT (Optional)
+/* 21. DARK MODE SUPPORT (Optional)
    ============================================= */
 @media (prefers-color-scheme: dark) {
     :root {

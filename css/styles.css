@@ -859,3 +859,14 @@ div {
         background-color: #333333;
     }
 }
+
+/* 22. LOVE FOOTER ELEMENT
+   ============================================= */
+.love {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-md);
+    color: var(--text-teal);
+    font-weight: 600;
+    font-size: 1rem;
+}

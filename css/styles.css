@@ -68,7 +68,7 @@ body {
 /* 4. HEADING STYLES
    ============================================= */
 h1, h2 {
-    color: var(--primary-color);
+    color: #000000;
     text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.3);
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -78,10 +78,6 @@ h1 {
     font-size: var(--font-size-h1);
     margin-bottom: var(--spacing-lg);
     text-align: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-yellow));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 h2 {
@@ -101,7 +97,12 @@ main {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: var(--spacing-lg);
-    background: rgba(255, 248, 231, 0.95);
+    background: linear-gradient(135deg, 
+        rgba(200, 16, 46, 0.9) 0%,
+        rgba(220, 20, 60, 0.7) 25%,
+        rgba(255, 215, 0, 0.2) 50%,
+        rgba(255, 248, 231, 0.85) 75%,
+        rgba(255, 248, 231, 0.95) 100%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
     backdrop-filter: blur(10px) saturate(180%);
     border: 2px solid var(--accent-yellow);
@@ -167,8 +168,10 @@ section {
     margin-bottom: var(--spacing-xxl);
     padding: var(--spacing-lg);
     background: linear-gradient(135deg, 
-        rgba(255, 248, 231, 0.95) 0%, 
-        rgba(250, 246, 240, 0.9) 100%);
+        rgba(200, 16, 46, 0.3) 0%,
+        rgba(220, 20, 60, 0.2) 30%,
+        rgba(255, 215, 0, 0.15) 60%,
+        rgba(255, 248, 231, 0.95) 100%);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     border: 2px solid var(--accent-yellow);
@@ -313,7 +316,9 @@ ul li {
 /* Add subtle glow on hover */
 .recipes:hover {
     background: linear-gradient(135deg, 
-        rgba(46, 204, 64, 0.15) 0%, 
+        rgba(200, 16, 46, 0.4) 0%,
+        rgba(46, 204, 64, 0.25) 40%,
+        rgba(255, 215, 0, 0.2) 70%,
         rgba(255, 248, 231, 0.95) 100%);
     box-shadow: 0 5px 20px rgba(46, 204, 64, 0.4),
                 0 0 15px rgba(255, 215, 0, 0.3);
@@ -356,8 +361,9 @@ section img {
    ============================================= */
 .letsConnect {
     background: linear-gradient(135deg, 
-        rgba(255, 248, 231, 0.95) 0%, 
-        rgba(46, 204, 64, 0.15) 100%);
+        rgba(200, 16, 46, 0.4) 0%,
+        rgba(46, 204, 64, 0.2) 50%,
+        rgba(255, 248, 231, 0.95) 100%);
     padding: var(--spacing-xl) var(--spacing-lg);
     border-radius: var(--border-radius);
     border-top: 3px solid var(--accent-yellow);

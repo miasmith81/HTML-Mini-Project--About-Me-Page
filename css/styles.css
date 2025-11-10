@@ -15,19 +15,19 @@
    Define your color scheme and spacing system
    ============================================= */
 :root {
-    /* Color Palette - Chinese Red Theme */
-    --primary-color: #C8102E; /* Chinese red */
-    --secondary-color: #DC143C; /* Crimson red variant */
-    --accent-color: #1B5E20; /* Dark bright green */
-    --accent-yellow: #FFD700; /* Gold yellow for small highlights */
-    --text-dark: #1A1A1A; /* Softer black */
-    --text-light: #4A4A4A; /* Lighter black for secondary text */
-    --background-cream: #FFF8E7; /* Soft cream */
-    --background-light: #FAF6F0; /* Light cream */
-    --background-white: #FFFEF9; /* Off-white cream */
-    --border-color: #E8D4C1; /* Cream border */
-    --glass-white: rgba(255, 248, 231, 0.7); /* For glassmorphism */
-    --glass-border: rgba(255, 255, 255, 0.2);
+    /* Color Palette - Inverted Red Theme */
+    --primary-color: #FFF8E7; /* Cream (was Chinese red) */
+    --secondary-color: #FAF6F0; /* Light cream (was Crimson) */
+    --accent-color: #2ECC40; /* Bright green (enhanced) */
+    --accent-yellow: #FFD700; /* Gold yellow */
+    --text-dark: #000000; /* Pure black */
+    --text-light: #1A1A1A; /* Dark black for secondary text */
+    --background-cream: #C8102E; /* Chinese red (was cream) */
+    --background-light: #DC143C; /* Crimson red (was light cream) */
+    --background-white: #B8001E; /* Darker red (was off-white) */
+    --border-color: #FFD700; /* Gold yellow border */
+    --glass-white: rgba(200, 16, 46, 0.8); /* Red with transparency */
+    --glass-border: rgba(255, 215, 0, 0.4); /* Yellow border */
     
     /* Typography Scale */
     --font-size-base: 16px;
@@ -69,7 +69,7 @@ body {
    ============================================= */
 h1, h2 {
     color: var(--primary-color);
-    text-shadow: 2px 2px 4px rgba(200, 16, 46, 0.1);
+    text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.3);
     font-weight: 500;
     letter-spacing: 0.5px;
 }
@@ -78,7 +78,7 @@ h1 {
     font-size: var(--font-size-h1);
     margin-bottom: var(--spacing-lg);
     text-align: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-yellow));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -101,15 +101,16 @@ main {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: var(--spacing-lg);
-    background: var(--glass-white);
+    background: rgba(255, 248, 231, 0.95);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
     backdrop-filter: blur(10px) saturate(180%);
-    border: 1px solid var(--glass-border);
+    border: 2px solid var(--accent-yellow);
     position: relative;
     z-index: 1;
     box-shadow: 
-        0 8px 32px rgba(200, 16, 46, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 215, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
     min-height: 100vh;
 }
 
@@ -128,12 +129,12 @@ img {
     object-fit: cover;
     border-radius: 50%;
     margin: var(--spacing-xl) auto;
-    border: 4px solid var(--primary-color);
+    border: 4px solid var(--accent-yellow);
     box-shadow: 
-        0 0 0 8px var(--background-cream),
-        0 0 0 12px var(--primary-color),
-        0 0 0 14px var(--accent-yellow),
-        0 10px 40px rgba(200, 16, 46, 0.3);
+        0 0 0 8px var(--accent-color),
+        0 0 0 12px var(--accent-yellow),
+        0 0 0 14px var(--primary-color),
+        0 10px 40px rgba(0, 0, 0, 0.4);
     transition: transform var(--transition-speed);
     position: relative;
 }
@@ -145,7 +146,7 @@ img {
     left: -20px;
     right: -20px;
     bottom: -20px;
-    border: 2px dotted var(--primary-color);
+    border: 2px dotted var(--accent-yellow);
     border-radius: 50%;
     opacity: 0;
     transition: all 0.3s ease;
@@ -166,13 +167,14 @@ section {
     margin-bottom: var(--spacing-xxl);
     padding: var(--spacing-lg);
     background: linear-gradient(135deg, 
-        var(--glass-white) 0%, 
-        rgba(255, 255, 255, 0.6) 100%);
+        rgba(255, 248, 231, 0.95) 0%, 
+        rgba(250, 246, 240, 0.9) 100%);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    border: 1px solid var(--glass-border);
+    border: 2px solid var(--accent-yellow);
     border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+                0 0 15px rgba(46, 204, 64, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -188,7 +190,7 @@ section::before {
     background: linear-gradient(
         45deg,
         transparent,
-        rgba(200, 16, 46, 0.03),
+        rgba(46, 204, 64, 0.08),
         transparent
     );
     transform: rotate(45deg);
@@ -234,14 +236,16 @@ ul li {
 
 .skills ul li {
     background: linear-gradient(135deg, 
-        var(--background-cream) 0%, 
-        var(--glass-white) 100%);
+        rgba(46, 204, 64, 0.2) 0%, 
+        rgba(255, 215, 0, 0.15) 100%);
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--border-radius);
-    border-left: 3px solid var(--accent-color);
+    border-left: 4px solid var(--accent-color);
     transition: all var(--transition-speed);
     position: relative;
     overflow: hidden;
+    color: var(--text-dark);
+    font-weight: 500;
 }
 
 .skills ul li::before {
@@ -265,10 +269,11 @@ ul li {
 
 .skills ul li:hover {
     background: var(--accent-color);
-    color: var(--background-white);
+    color: var(--text-dark);
     border-left-color: var(--accent-yellow);
     transform: translateX(5px);
-    box-shadow: -5px 5px 15px rgba(27, 94, 32, 0.3);
+    box-shadow: -5px 5px 15px rgba(46, 204, 64, 0.5),
+                0 0 10px rgba(255, 215, 0, 0.6);
 }
 
 /* 8. COLLAPSIBLE RECIPES SECTION
@@ -308,29 +313,31 @@ ul li {
 /* Add subtle glow on hover */
 .recipes:hover {
     background: linear-gradient(135deg, 
-        rgba(200, 16, 46, 0.05) 0%, 
-        rgba(255, 248, 231, 0.9) 100%);
-    box-shadow: 0 5px 20px rgba(200, 16, 46, 0.15);
+        rgba(46, 204, 64, 0.15) 0%, 
+        rgba(255, 248, 231, 0.95) 100%);
+    box-shadow: 0 5px 20px rgba(46, 204, 64, 0.4),
+                0 0 15px rgba(255, 215, 0, 0.3);
 }
 
 /* 9. LINK STYLES
    ============================================= */
 a {
-    color: var(--secondary-color);
+    color: var(--accent-color);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: color var(--transition-speed);
     display: inline-block;
     margin-top: var(--spacing-lg);
 }
 
 a:hover {
-    color: var(--accent-color);
+    color: var(--accent-yellow);
     text-decoration: underline;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 a:focus {
-    outline: 2px solid var(--secondary-color);
+    outline: 2px solid var(--accent-yellow);
     outline-offset: 2px;
 }
 
@@ -349,11 +356,11 @@ section img {
    ============================================= */
 .letsConnect {
     background: linear-gradient(135deg, 
-        var(--background-cream) 0%, 
-        rgba(200, 16, 46, 0.05) 100%);
+        rgba(255, 248, 231, 0.95) 0%, 
+        rgba(46, 204, 64, 0.15) 100%);
     padding: var(--spacing-xl) var(--spacing-lg);
     border-radius: var(--border-radius);
-    border-top: 3px solid var(--primary-color);
+    border-top: 3px solid var(--accent-yellow);
 }
 
 footer {
@@ -364,10 +371,11 @@ footer {
 }
 
 footer h3 {
-    color: var(--primary-color);
+    color: var(--accent-yellow);
     font-size: 1.3rem;
     margin: 0;
     position: relative;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
 }
 
 footer h3::after {
@@ -377,8 +385,8 @@ footer h3::after {
     left: 50%;
     transform: translateX(-50%);
     width: 50px;
-    height: 2px;
-    background: var(--accent-yellow);
+    height: 3px;
+    background: var(--accent-color);
 }
 
 /* Social Links Container */
@@ -393,10 +401,10 @@ footer .social-links {
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: var(--background-white);
-    border: 2px solid var(--primary-color);
+    background: var(--accent-color);
+    border: 2px solid var(--accent-yellow);
     border-radius: 25px;
-    color: var(--primary-color);
+    color: var(--text-dark);
     font-weight: 600;
     transition: all 0.3s ease;
     position: relative;
@@ -410,16 +418,17 @@ footer .social-links {
     left: 50%;
     width: 0;
     height: 0;
-    background: var(--primary-color);
+    background: var(--accent-yellow);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
 }
 
 .connectLink:hover {
-    color: var(--background-white);
+    color: var(--text-dark);
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(200, 16, 46, 0.3);
+    box-shadow: 0 10px 20px rgba(46, 204, 64, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.6);
 }
 
 .connectLink:hover::before {
@@ -448,32 +457,36 @@ footer .social-links {
 /* 12. RECIPE PAGE SPECIFIC STYLES
    ============================================= */
 #recipe {
-    background: var(--glass-white);
+    background: rgba(255, 248, 231, 0.95);
     padding: var(--spacing-xl);
 }
 
 #recipe h4 {
     color: var(--accent-color);
-    border-bottom: 2px solid var(--accent-yellow);
+    border-bottom: 3px solid var(--accent-yellow);
     padding-bottom: var(--spacing-sm);
     margin-top: var(--spacing-lg);
+    text-shadow: 0 0 10px rgba(46, 204, 64, 0.3);
 }
 
 #recipe ol li {
     margin-bottom: var(--spacing-md);
     padding-left: var(--spacing-md);
-    border-left: 3px solid var(--primary-color);
+    border-left: 4px solid var(--accent-color);
     transition: all 0.3s ease;
+    color: var(--text-dark);
 }
 
 #recipe ol li:hover {
     border-left-color: var(--accent-yellow);
-    background: rgba(200, 16, 46, 0.05);
+    background: rgba(46, 204, 64, 0.1);
     padding-left: var(--spacing-lg);
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
 }
 
 #recipe strong {
-    color: var(--primary-color);
+    color: var(--accent-color);
+    font-weight: 700;
 }
 
 /* 13. RESPONSIVE GRID FOR CONTENT

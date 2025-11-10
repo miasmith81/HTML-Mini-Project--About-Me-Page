@@ -15,15 +15,19 @@
    Define your color scheme and spacing system
    ============================================= */
 :root {
-    /* Color Palette */
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --text-dark: #333333;
-    --text-light: #666666;
-    --background-light: #f8f9fa;
-    --background-white: #ffffff;
-    --border-color: #dee2e6;
+    /* Color Palette - Chinese Red Theme */
+    --primary-color: #C8102E; /* Chinese red */
+    --secondary-color: #DC143C; /* Crimson red variant */
+    --accent-color: #1B5E20; /* Dark bright green */
+    --accent-yellow: #FFD700; /* Gold yellow for small highlights */
+    --text-dark: #1A1A1A; /* Softer black */
+    --text-light: #4A4A4A; /* Lighter black for secondary text */
+    --background-cream: #FFF8E7; /* Soft cream */
+    --background-light: #FAF6F0; /* Light cream */
+    --background-white: #FFFEF9; /* Off-white cream */
+    --border-color: #E8D4C1; /* Cream border */
+    --glass-white: rgba(255, 248, 231, 0.7); /* For glassmorphism */
+    --glass-border: rgba(255, 255, 255, 0.2);
     
     /* Typography Scale */
     --font-size-base: 16px;
@@ -56,8 +60,25 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: var(--background-light);
+    position: relative;
+    background-color: var(--background-cream);
     min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/assets/mausiTrauma.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.15;
+    z-index: -2;
+    filter: blur(2px) saturate(0.8);
 }
 
 /* 4. HEADING STYLES
@@ -83,7 +104,15 @@ main {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: var(--spacing-lg);
-    background-color: var(--background-white);
+    background: var(--glass-white);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    z-index: 1;
+    box-shadow: 
+        0 8px 32px rgba(200, 16, 46, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
     min-height: 100vh;
 }
 
@@ -116,9 +145,45 @@ img {
 section {
     margin-bottom: var(--spacing-xxl);
     padding: var(--spacing-lg);
-    background-color: var(--background-white);
+    background: linear-gradient(135deg, 
+        var(--glass-white) 0%, 
+        rgba(255, 255, 255, 0.6) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
     border-radius: var(--border-radius);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(200, 16, 46, 0.03),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+section:hover::before {
+    opacity: 1;
+    animation: shimmer 0.8s ease;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
 .about p {
@@ -160,6 +225,48 @@ ul li {
     color: white;
 }
 
+/* 8. COLLAPSIBLE RECIPES SECTION
+   ============================================= */
+.recipes {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.recipesCollapse {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.recipes:hover .recipesCollapse {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.recipes h2::after {
+    content: ' ▼';
+    font-size: 0.7em;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.recipes:hover h2::after {
+    transform: rotate(180deg);
+}
+
+/* Add subtle glow on hover */
+.recipes:hover {
+    background: linear-gradient(135deg, 
+        rgba(200, 16, 46, 0.05) 0%, 
+        rgba(255, 248, 231, 0.9) 100%);
+    box-shadow: 0 5px 20px rgba(200, 16, 46, 0.15);
+}
+
 /* 9. LINK STYLES
    ============================================= */
 a {
@@ -192,14 +299,114 @@ section img {
     margin-right: auto;
 }
 
-/* 11. RESPONSIVE GRID FOR CONTENT
+/* 11. FOOTER/LET'S CONNECT SECTION
+   ============================================= */
+.letsConnect {
+    background: linear-gradient(135deg, 
+        var(--background-cream) 0%, 
+        rgba(200, 16, 46, 0.05) 100%);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border-top: 3px solid var(--primary-color);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+footer h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin: 0;
+    position: relative;
+}
+
+footer h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--accent-yellow);
+}
+
+/* Social Links Container */
+footer .social-links {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+}
+
+.connectLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--background-white);
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.connectLink::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--primary-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.connectLink:hover {
+    color: var(--background-white);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(200, 16, 46, 0.3);
+}
+
+.connectLink:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.connectLink span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add GitHub and LinkedIn icons using CSS */
+.connectLink[href*="github"]::after {
+    content: '⬢';
+    font-size: 1.2em;
+    margin-left: 5px;
+}
+
+.connectLink[href*="linkedin"]::after {
+    content: '▪';
+    font-size: 1.2em;
+    margin-left: 5px;
+}
+
+/* 12. RESPONSIVE GRID FOR CONTENT
    ============================================= */
 div {
     display: grid;
     gap: var(--spacing-xl);
 }
 
-/* 12. MEDIA QUERIES - TABLET (768px+)
+/* 13. MEDIA QUERIES - TABLET (768px+)
    ============================================= */
 @media screen and (min-width: 768px) {
     :root {
@@ -226,7 +433,7 @@ div {
     }
 }
 
-/* 13. MEDIA QUERIES - DESKTOP (1024px+)
+/* 14. MEDIA QUERIES - DESKTOP (1024px+)
    ============================================= */
 @media screen and (min-width: 1024px) {
     :root {
@@ -264,7 +471,7 @@ div {
     }
 }
 
-/* 14. UTILITY CLASSES
+/* 15. UTILITY CLASSES
    ============================================= */
 .text-center {
     text-align: center;
@@ -278,7 +485,7 @@ div {
     margin-bottom: var(--spacing-lg);
 }
 
-/* 15. ACCESSIBILITY IMPROVEMENTS
+/* 16. ACCESSIBILITY IMPROVEMENTS
    ============================================= */
 /* Focus visible for keyboard navigation */
 *:focus-visible {
@@ -303,7 +510,7 @@ div {
     text-decoration: none;
 }
 
-/* 16. PRINT STYLES
+/* 17. PRINT STYLES
    ============================================= */
 @media print {
     body {
@@ -327,7 +534,7 @@ div {
     }
 }
 
-/* 17. ANIMATION CLASSES (Optional)
+/* 18. ANIMATION CLASSES (Optional)
    ============================================= */
 @keyframes fadeIn {
     from {
@@ -344,7 +551,7 @@ div {
     animation: fadeIn 0.5s ease-out;
 }
 
-/* 18. DARK MODE SUPPORT (Optional)
+/* 19. DARK MODE SUPPORT (Optional)
    ============================================= */
 @media (prefers-color-scheme: dark) {
     :root {

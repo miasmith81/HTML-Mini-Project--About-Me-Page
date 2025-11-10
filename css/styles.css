@@ -499,7 +499,25 @@ div {
     gap: var(--spacing-xl);
 }
 
-/* 14. MEDIA QUERIES - TABLET (768px+)
+/* 14. MEDIA QUERIES - MOBILE (max 768px)
+   ============================================= */
+@media screen and (max-width: 768px) {
+    footer .social-links {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .connectLink {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .recipesCollapse {
+        max-height: 400px; /* Higher for mobile */
+    }
+}
+
+/* 15. MEDIA QUERIES - TABLET (768px+)
    ============================================= */
 @media screen and (min-width: 768px) {
     :root {
@@ -526,7 +544,7 @@ div {
     }
 }
 
-/* 15. MEDIA QUERIES - DESKTOP (1024px+)
+/* 16. MEDIA QUERIES - DESKTOP (1024px+)
    ============================================= */
 @media screen and (min-width: 1024px) {
     :root {

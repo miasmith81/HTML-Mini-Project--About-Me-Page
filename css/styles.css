@@ -132,12 +132,35 @@ img {
     border-radius: 50%;
     margin: var(--spacing-xl) auto;
     border: 4px solid var(--primary-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+        0 0 0 8px var(--background-cream),
+        0 0 0 12px var(--primary-color),
+        0 0 0 14px var(--accent-yellow),
+        0 10px 40px rgba(200, 16, 46, 0.3);
     transition: transform var(--transition-speed);
+    position: relative;
+}
+
+.mausiMainPagePic::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border: 2px dotted var(--primary-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
 .mausiMainPagePic:hover {
     transform: scale(1.05);
+}
+
+.mausiMainPagePic:hover::after {
+    opacity: 0.5;
+    transform: rotate(45deg);
 }
 
 /* 7. SECTION STYLES
